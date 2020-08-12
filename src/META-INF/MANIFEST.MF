@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: fr.pablo.bot.Main
+Class-Path: mysql-connector-java-8.0.20.jar JDA-4.1.0_81-withDependencie
+ s.jar
+

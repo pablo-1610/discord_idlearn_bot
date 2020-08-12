@@ -1,0 +1,1 @@
+ if (e.getReaction().getReactionEmote().getEmoji().equals("☎")) {

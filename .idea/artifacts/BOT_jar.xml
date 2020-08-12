@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="BOT:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BOT_jar</output-path>
+    <root id="root">
+      <element id="archive" name="BOT.jar">
+        <element id="module-output" name="BOT" />
+      </element>
+      <element id="library" level="project" name="mysql-connector-java-8.0.20" />
+      <element id="library" level="project" name="JDA-4.1.0_81-withDependencies" />
+    </root>
+  </artifact>
+</component>
