@@ -4,6 +4,7 @@ import fr.pablo.bot.Main;
 import fr.pablo.bot.data.cache.CacheSystem;
 import fr.pablo.bot.data.cache.cache_objects.IDLearner;
 import fr.pablo.bot.data.database.DbConnection;
+import fr.pablo.bot.modules.autoevents.EventSelector;
 import fr.pablo.bot.teams.Team;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +18,11 @@ import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 public class ReactionAdd {
     public ReactionAdd(MessageReactionAddEvent e) {
         if (e.getMember().getUser().equals(e.getJDA().getSelfUser())) return;
+
+        if(e.getChannel().getId().equals(String.valueOf(743127101359521802L))){
+            EventSelector.reactAdd(e);
+            return;
+        }
 
         if(!e.getChannel().getId().equals(String.valueOf(742329577258483732L))) return;
 

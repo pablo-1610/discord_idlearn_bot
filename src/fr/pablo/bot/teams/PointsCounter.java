@@ -35,7 +35,6 @@ public class PointsCounter {
             calendar.add(Calendar.HOUR_OF_DAY, 2);
             date = calendar.getTime();
 
-            System.out.println(format.format(date));
 
             String a = "\\❤️ • Équipe Rouge: **"+CacheSystem.teamCache.get(0).getPts()+" pts**\n";
             String b = "\\\uD83D\uDC99 • Équipe Bleue: **"+CacheSystem.teamCache.get(1).getPts()+" pts**\n";

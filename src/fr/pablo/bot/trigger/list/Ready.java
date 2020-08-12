@@ -3,6 +3,8 @@ package fr.pablo.bot.trigger.list;
 import fr.pablo.bot.config.Season;
 import fr.pablo.bot.data.cache.CacheSystem;
 import fr.pablo.bot.data.cache.task.AutoSave;
+import fr.pablo.bot.modules.autoevents.EventLauncher;
+import fr.pablo.bot.modules.autoevents.EventSelector;
 import fr.pablo.bot.task.SeasonTaskA;
 import fr.pablo.bot.teams.PointsCounter;
 import net.dv8tion.jda.api.events.GenericEvent;
@@ -17,11 +19,14 @@ public class Ready {
         e.getJDA().getVoiceChannelById(742341538042085457L).getManager().setName("Saison "+ Season.s).queue();
         e.getJDA().getVoiceChannelById(742341868150456391L).getManager().setName(Season.sT).queue();
         PointsCounter.initialize();
+        EventSelector.initialize();
+        EventLauncher.initializeQuestions();
         Timer timer;
         timer = new Timer();
         timer.schedule(new SeasonTaskA(), 0, 5000);
         timer.schedule(new AutoSave(), 6000,60000*3);
         timer.schedule(new PointsCounter.Counter(), 6000,60000);
+        timer.schedule(new EventLauncher.Loop(), 5000, 60000*10);
         try {
             CacheSystem.initialize();
         } catch (SQLException | ClassNotFoundException ex) {

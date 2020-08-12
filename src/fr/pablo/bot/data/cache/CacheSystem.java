@@ -17,6 +17,7 @@ public class CacheSystem {
 
     public static Map<String, IDLearner> usersCache = new HashMap<>();
     public static Map<Integer, Team> teamCache = new HashMap<>();
+    public static Map<Integer, fr.pablo.bot.teams.Team> teamDataCache = new HashMap<>();
 
 
     public static void initialize() throws SQLException, ClassNotFoundException {
@@ -38,6 +39,7 @@ public class CacheSystem {
         rs = preparedStatement.executeQuery();
         while (rs.next()){
             teamCache.put(rs.getInt("id"), new Team(rs.getInt("id"),rs.getInt("pts")));
+            teamDataCache.put(rs.getInt("id"), fr.pablo.bot.teams.Team.values()[rs.getInt("id")]);
         }
 
 
